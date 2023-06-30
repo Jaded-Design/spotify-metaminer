@@ -33,7 +33,9 @@ Follow these steps to setup and run the project:
     npm start
     ```
 
-2. The server will start on port 3000. Open your browser and navigate to `http://localhost:3000/swagger` to access the Swagger UI and interact with the API.
+2. The server will start on port 3000. Open your browser and navigate to `http://localhost:3000/swagger` to access the Swagger UI and interact with the API, as seen in this screenshot: 
+![Alt text](/swagger-proof.png?raw=true "Swaggering")
+
 
 ## API Endpoints
 
