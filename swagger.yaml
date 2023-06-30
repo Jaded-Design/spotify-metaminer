@@ -1,0 +1,62 @@
+swagger: "2.0"
+info:
+  version: "1.0.0"
+  title: "Spotify MetaStorage API"
+  description: "Take the data from Spotify, throw it in a pot, and baby you got a stew going"
+host: "localhost:3000"
+basePath: "/"
+schemes:
+  - "http"
+paths:
+  /track:
+    post:
+      summary: "Create a new track"
+      consumes:
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "ISRC to create"
+          required: true
+          schema:
+            type: "object"
+            properties:
+              isrc:
+                type: "string"
+            required:
+              - "isrc"
+      responses:
+        200:
+          description: "Track created"
+        409:
+          description: "Track already exists in the database"
+        500:
+          description: "An error occurred while creating the track"
+  /track/{isrc}:
+    get:
+      summary: "Get a track by ISRC"
+      parameters:
+        - name: "isrc"
+          in: "path"
+          description: "ISRC of the track to get"
+          required: true
+          type: "string"
+      responses:
+        200:
+          description: "Track fetched successfully"
+        404:
+          description: "Track not found"
+  /artist/{artistName}:
+    get:
+      summary: "Get tracks by artist name"
+      parameters:
+        - name: "artistName"
+          in: "path"
+          description: "Name of the artist to get tracks for"
+          required: true
+          type: "string"
+      responses:
+        200:
+          description: "Tracks fetched successfully"
+        404:
+          description: "Artist not found"
